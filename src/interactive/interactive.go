@@ -20,6 +20,11 @@ func InteractiveMode() {
 		}
 
 		// After getting input, first thing to do is to validate it
+		// I am thinking of a single validate function which will run all checks sequentially
+		// and return if everything is fine or not. If any of the test fails, it should return
+		// an error with proper description of what went wrong.
+
+		// Checks:
 		// 1. Redundant whitespace
 		// 2. Balanced parentheses
 
