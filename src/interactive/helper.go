@@ -21,7 +21,7 @@ func GetInput() (string, error) {
 }
 
 func IsDigit(b byte) bool {
-	return int(b) >= 48 && int(b) <= 57
+	return (int(b) >= 48 && int(b) <= 57) || b == '.'
 }
 
 func IsOperator(s string) bool {

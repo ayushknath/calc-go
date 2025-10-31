@@ -25,6 +25,7 @@ func InteractiveMode() {
 
 		st := stack.NewStack[string]()
 		opst := stack.NewStack[float64]()
+		var invalidNum = false
 
 		for i := 0; i < len(input); i++ {
 			char := input[i]
@@ -44,6 +45,8 @@ func InteractiveMode() {
 				operand, err := strconv.ParseFloat(operandStr, 64)
 				if err != nil {
 					fmt.Printf("invalid number %s\n", operandStr)
+					invalidNum = true
+					break
 				}
 
 				opst.Push(operand)
@@ -72,6 +75,11 @@ func InteractiveMode() {
 				}
 				st.Pop()
 			}
+		}
+
+		// Check for any anomaly and continue with the REPL
+		if invalidNum {
+			continue
 		}
 
 		for !st.IsEmpty() {

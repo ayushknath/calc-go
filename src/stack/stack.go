@@ -30,7 +30,7 @@ func (s *Stack[T]) PrintStack() {
 
 func (s *Stack[T]) Top() T {
 	if s.IsEmpty() {
-		fmt.Println("stack is already empty")
+		fmt.Println("top: stack is already empty")
 		os.Exit(0)
 	}
 	return s.values[s.top]
@@ -43,7 +43,7 @@ func (s *Stack[T]) Push(x T) {
 
 func (s *Stack[T]) Pop() T {
 	if s.IsEmpty() {
-		fmt.Println("stack is already empty")
+		fmt.Println("pop: stack is already empty")
 		os.Exit(0)
 	}
 	pop := s.values[s.top]
