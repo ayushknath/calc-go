@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"slices"
 	"strings"
 
 	"github.com/ayushknath/calc-go/src/compute"
