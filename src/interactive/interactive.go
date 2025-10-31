@@ -19,6 +19,10 @@ func InteractiveMode() {
 			os.Exit(0)
 		}
 
+		// After getting input, first thing to do is to validate it
+		// 1. Redundant whitespace
+		// 2. Balanced parentheses
+
 		if input == "quit" {
 			break
 		}
