@@ -1,6 +1,8 @@
 package interactive
 
 import (
+	"slices"
+
 	"github.com/ayushknath/calc-go/src/stack"
 )
 
@@ -35,4 +37,13 @@ func AreValidChars(s string) bool {
 		}
 	}
 	return true
+}
+
+func IsDigit(b byte) bool {
+	return (int(b) >= 48 && int(b) <= 57) || b == '.'
+}
+
+func IsOperator(s string) bool {
+	operators := []string{"+", "-", "*", "/", "**"}
+	return slices.Contains(operators, s)
 }

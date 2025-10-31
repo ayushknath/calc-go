@@ -20,15 +20,6 @@ func GetInput() (string, error) {
 	return strings.TrimSpace(input), nil
 }
 
-func IsDigit(b byte) bool {
-	return (int(b) >= 48 && int(b) <= 57) || b == '.'
-}
-
-func IsOperator(s string) bool {
-	operators := []string{"+", "-", "*", "/", "**"}
-	return slices.Contains(operators, s)
-}
-
 func HasHighPrecedence(top, expr string) bool {
 	return Precedence(top) >= Precedence(expr)
 }
