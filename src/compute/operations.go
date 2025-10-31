@@ -27,11 +27,17 @@ func SubFloat(x, y float64) float64 {
 }
 
 func Mul(x, y int) int {
+	if x == 0 || y == 0 {
+		return 0
+	}
 	result := x * y
 	return result
 }
 
 func MulFloat(x, y float64) float64 {
+	if x == 0.0 || y == 0.0 {
+		return 0.0
+	}
 	result := x * y
 	return result
 }
@@ -41,6 +47,9 @@ func Div(x, y int) float64 {
 		fmt.Println("cannot divide by zero")
 		os.Exit(0)
 	}
+	if x == 0 {
+		return 0.0
+	}
 	result := float64(x) / float64(y)
 	return result
 }
@@ -49,6 +58,9 @@ func DivFloat(x, y float64) float64 {
 	if y == 0.0 {
 		fmt.Println("cannot divide by zero")
 		os.Exit(0)
+	}
+	if x == 0.0 {
+		return 0.0
 	}
 	result := x / y
 	return result
