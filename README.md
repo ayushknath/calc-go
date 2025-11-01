@@ -29,12 +29,12 @@ cd ../build
 ## Features
 
 The app has two modes
-1. Normal mode: Here you can perform simple calculations by specifying the operation and the arguments (numbers) to operate upon
-2. Interactive mode: Spins up a REPL where you can write "not-so-complex" expressions and get their result
+1. **Normal mode**: Here you can perform simple calculations by specifying the operation and the arguments (numbers) to operate upon
+2. **Interactive mode**: Spins up a REPL where you can write "not-so-complex" expressions and get their result
 
 ### Normal mode
 
-Simple one line calculations can be done with built-in commands, each of which accept two arguments like:
+Simple calculations can be done with built-in commands, each of which accept two arguments like:
 1. `./calc add 2 3` for addition
 2. `./calc sub 2 3` for subtraction
 3. `./calc mul 2 3` for multiplication
