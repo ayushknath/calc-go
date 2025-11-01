@@ -1,10 +1,24 @@
 package interactive
 
 import (
-	"slices"
+	"fmt"
+	"strconv"
 
 	"github.com/ayushknath/calc-go/src/stack"
 )
+
+func ValidateInput(s string) error {
+	if IsEmptyInput(s) {
+		return fmt.Errorf("input is empty")
+	}
+	if !IsBalancedParentheses(s) {
+		return fmt.Errorf("parentheses are not balanced")
+	}
+	if !AreValidChars(s) {
+		return fmt.Errorf("input has invalid characters")
+	}
+	return nil
+}
 
 func IsEmptyInput(s string) bool {
 	return s == ""
@@ -39,11 +53,19 @@ func AreValidChars(s string) bool {
 	return true
 }
 
+func IsValidNumber(s string) bool {
+	_, err := strconv.ParseFloat(s, 64)
+	return err == nil
+}
+
 func IsDigit(b byte) bool {
 	return (int(b) >= 48 && int(b) <= 57) || b == '.'
 }
 
 func IsOperator(s string) bool {
-	operators := []string{"+", "-", "*", "/", "**"}
-	return slices.Contains(operators, s)
+	switch s {
+	case "+", "-", "*", "/", "**":
+		return true
+	}
+	return false
 }
