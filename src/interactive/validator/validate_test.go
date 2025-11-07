@@ -1,4 +1,4 @@
-package validate
+package validator
 
 import (
 	"errors"
@@ -40,20 +40,20 @@ func TestInValidation(t *testing.T) {
 		err    error
 	}{
 		{[]string{"2", "+", "*", "3"}, errors.New("invalid expression")},
-		{[]string{"(", "2", "+", "3"}, errors.New("invalid expression")},
-		{[]string{"2", "+", "3", ")"}, errors.New("invalid expression")},
+		{[]string{"(", "2", "+", "3"}, errors.New("unbalanced parentheses")},
+		{[]string{"2", "+", "3", ")"}, errors.New("unbalanced parentheses")},
 		{[]string{")", "2", "+", "3"}, errors.New("invalid expression")},
 		{[]string{"2", "+", "(", ")", "3"}, errors.New("invalid expression")},
-		{[]string{"(", "(", "2", "+", "3", ")"}, errors.New("invalid expression")},
+		{[]string{"(", "(", "2", "+", "3", ")"}, errors.New("unbalanced parentheses")},
 		{[]string{"3", "**"}, errors.New("invalid expression")},
 		{[]string{"*", "3", "+", "4"}, errors.New("invalid expression")},
 		{[]string{"2", "3", "+"}, errors.New("invalid expression")},
-		{[]string{"(", "2", "+", "3", ")", ")", "*", "4"}, errors.New("invalid expression")},
-		{[]string{"(", "2", "+", "(", "3", "*", "4"}, errors.New("invalid expression")},
+		{[]string{"(", "2", "+", "3", ")", ")", "*", "4"}, errors.New("unbalanced parentheses")},
+		{[]string{"(", "2", "+", "(", "3", "*", "4"}, errors.New("unbalanced parentheses")},
 		{[]string{"2", "+", "+", "3"}, errors.New("invalid expression")},
 		{[]string{"(", ")", "*", "5"}, errors.New("invalid expression")},
 		{[]string{"4", "-", "(", "3", "+", "2", "*"}, errors.New("invalid expression")},
-		{[]string{"2", "+", "(", "3", "+", "4", ")", ")"}, errors.New("invalid expression")},
+		{[]string{"2", "+", "(", "3", "+", "4", ")", ")"}, errors.New("unbalanced parentheses")},
 	}
 
 	for _, tt := range tests {
