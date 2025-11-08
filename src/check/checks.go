@@ -2,8 +2,6 @@ package check
 
 import (
 	"strconv"
-
-	"github.com/ayushknath/calc-go/src/stack"
 )
 
 func IsEmptyInput(s string) bool {
