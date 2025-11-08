@@ -14,9 +14,6 @@ func Evaluate(tokens []string) float64 {
 	st := stack.NewStack[string]()
 	// Stack for operands
 	opst := stack.NewStack[float64]()
-	// Flags to detect invalid tokens
-	// var invalidNum = false
-	// var invalidOperator = false
 
 	for _, tok := range tokens {
 		switch {

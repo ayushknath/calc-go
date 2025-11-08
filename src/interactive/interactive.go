@@ -18,7 +18,7 @@ func InteractiveMode() {
 	// REPL
 	for {
 		fmt.Print(">> ")
-		input, inputErr := GetInput()
+		input, inputErr := getInput()
 		if inputErr != nil {
 			fmt.Println("failed to read input")
 			os.Exit(0)
@@ -47,7 +47,7 @@ func InteractiveMode() {
 	}
 }
 
-func GetInput() (string, error) {
+func getInput() (string, error) {
 	reader := bufio.NewReader(os.Stdin)
 	input, readErr := reader.ReadString('\n')
 	if readErr != nil {

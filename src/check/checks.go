@@ -39,21 +39,6 @@ func IsParen(b byte) bool {
 	return b == '(' || b == ')'
 }
 
-func HasBalancedParens(s string) bool {
-	st := stack.NewStack[byte]()
-	for i := 0; i < len(s); i++ {
-		if s[i] == '(' {
-			st.Push(s[i])
-		} else if s[i] == ')' {
-			if st.IsEmpty() {
-				return false
-			}
-			st.Pop()
-		}
-	}
-	return st.IsEmpty()
-}
-
 func HasValidChars(s string) bool {
 	m := map[byte]bool{
 		'0': true, '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true, '9': true,
