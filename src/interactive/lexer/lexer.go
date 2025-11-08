@@ -12,9 +12,9 @@ func Tokenize(s string) []string {
 			continue
 		}
 
-		if check.IsDigit(s[i]) {
+		if check.IsDigit(s[i]) || check.IsDecimalPoint(s[i]) {
 			j := i + 1
-			for j < len(s) && check.IsDigit(s[j]) {
+			for j < len(s) && (check.IsDigit(s[j]) || check.IsDecimalPoint(s[j])) {
 				j++
 			}
 			tokens = append(tokens, s[i:j])
