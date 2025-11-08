@@ -2,6 +2,10 @@
 
 A simple command line calculator written in Go
 
+# Requirements
+
+You must have `go` installed locally
+
 ## Build instructions
 
 Follow the instructions and copy the commands below to build the app
@@ -43,7 +47,7 @@ Simple calculations can be done with built-in commands, each of which accept two
 
 ### Interactive mode
 
-To enter the REPL, type `./calc -i`. To quit the REPL, type `quit`
+To enter the interpreter, type `./calc -i`. To exit, type `quit`
 
 ```bash
 $ ./calc -i
